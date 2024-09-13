@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import React, { useState, useEffect } from 'react'
 import { Eye, EyeOff, Bell, Calendar, ChevronLeft, ChevronRight, Filter, Home, MoreHorizontal, Plus, Search, Settings, Users, Briefcase, MessageCircle, BarChart2, DollarSign, Menu, LogOut, X, UserCircle2, Mail, PhoneCall, FileText, CheckSquare } from 'lucide-react'
@@ -14,29 +14,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Checkbox } from "@/components/ui/checkbox"
-import type { Patient } from '@/types'
-
-type Theme = {
-  name: string;
-  value: string;
-}
-
-const themes: Theme[] = [
-  { name: 'Light', value: 'light' },
-  { name: 'Dark', value: 'dark' },
-  { name: 'Zinc', value: 'zinc' },
-  { name: 'Slate', value: 'slate' },
-  { name: 'Stone', value: 'stone' },
-  { name: 'Gray', value: 'gray' },
-  { name: 'Neutral', value: 'neutral' },
-  { name: 'Red', value: 'red' },
-  { name: 'Rose', value: 'rose' },
-  { name: 'Orange', value: 'orange' },
-  { name: 'Green', value: 'green' },
-  { name: 'Blue', value: 'blue' },
-  { name: 'Yellow', value: 'yellow' },
-  { name: 'Violet', value: 'violet' },
-]
 
 const patients = [
   { id: 1, name: 'Annette Brave', gender: 'F', age: 67, condition: 'DM2, HTN +12', priority: '01', raf: 13.234, risk: 'Highest', status: 'In-progress', awvStatus: 'Due', billable: '-', cohorts: ['High risk', 'High cost'], action: 'Initiate AWV' },
@@ -46,7 +23,7 @@ const patients = [
   { id: 5, name: 'Diva Slayer', gender: 'F', age: 58, condition: 'HTN +9', priority: '12', raf: 12.211, risk: 'High', status: 'In-progress', awvStatus: 'Claim generated (2/2/24)', billable: '-', cohorts: [], action: '' },
 ]
 
-const patientListData: Patient[] = [
+const patientListData = [
   { id: 110, name: 'Annette Brave', age: 78, gender: 'F', risk: 'Highest', alerts: 5, raf: 1.234, summary: 'Severe sepsis, high fever 103°F, elevated lactate levels. High cost, multiple ICU admissions. Immediate intervention needed.' },
   { id: 2897, name: 'Sarah Dorathy', age: 78, gender: 'F', risk: 'Highest', alerts: 1, raf: 1.567, summary: 'Critical heart failure, ejection fraction 25%, recent cardiac arrest. Elevated cost, frequent hospitalizations. Urgent care required.' },
   { id: 4536, name: 'Zayne Wills', age: 68, gender: 'F', risk: 'High', alerts: 5, raf: 0.987, summary: 'Rapid deterioration, acute renal failure, elevated creatinine, ongoing dialysis. High utilization, frequent treatments. Needs urgent attention.' },
@@ -71,7 +48,24 @@ const assignedTasks = [
   { type: 'email', name: 'Savannah Nguyen', description: 'Regarding Registration documents', time: '02/11 9:30am' },
 ]
 
-function CommunicationTab({ patient }: { patient: Patient }) {
+const themes = [
+  { name: 'Light', value: 'light' },
+  { name: 'Dark', value: 'dark' },
+  { name: 'Zinc', value: 'zinc' },
+  { name: 'Slate', value: 'slate' },
+  { name: 'Stone', value: 'stone' },
+  { name: 'Gray', value: 'gray' },
+  { name: 'Neutral', value: 'neutral' },
+  { name: 'Red', value: 'red' },
+  { name: 'Rose', value: 'rose' },
+  { name: 'Orange', value: 'orange' },
+  { name: 'Green', value: 'green' },
+  { name: 'Blue', value: 'blue' },
+  { name: 'Yellow', value: 'yellow' },
+  { name: 'Violet', value: 'violet' },
+]
+
+function CommunicationTab({ patient }) {
   const communications = [
     { id: 1, type: 'care', name: 'Care for Williamy Jammy', message: '@Rio he is having some stomach aches lately.', time: 'Now' },
     { id: 2, type: 'message', name: 'Robyn Friesen', message: 'You: Sure thing, I\'ll have a look today. They\'re looking great!', time: 'Now' },
@@ -80,7 +74,7 @@ function CommunicationTab({ patient }: { patient: Patient }) {
     { id: 5, type: 'call', name: 'Natalie Welch', message: 'Missed Call', time: 'Saturday' },
   ]
 
-  const getIcon = (type: string) => {
+  const getIcon = (type) => {
     switch (type) {
       case 'care': return <UserCircle2 className="h-4 w-4" />;
       case 'message': return <MessageCircle className="h-4 w-4" />;
@@ -113,7 +107,7 @@ function CommunicationTab({ patient }: { patient: Patient }) {
   )
 }
 
-function CareNoteTab({ patient }: { patient: Patient }) {
+function CareNoteTab({ patient }) {
   const careNotes = [
     { id: 1, title: 'Initial Assessment', content: 'Patient presented with severe abdominal pain...', date: '2023-06-15' },
     { id: 2, title: 'Follow-up Visit', content: 'Pain has subsided, but patient reports occasional discomfort...', date: '2023-06-22' },
@@ -140,7 +134,7 @@ function CareNoteTab({ patient }: { patient: Patient }) {
   )
 }
 
-function TasksTab({ patient }: { patient: Patient }) {
+function TasksTab({ patient }) {
   const tasks = [
     { id: 1, title: 'Schedule follow-up appointment', status: 'Pending', dueDate: '2023-07-05' },
     { id: 2, title: 'Review lab results', status: 'Completed', dueDate: '2023-07-02' },
@@ -169,7 +163,7 @@ function TasksTab({ patient }: { patient: Patient }) {
   )
 }
 
-function PatientDetails({ patient, onClose }: { patient: Patient; onClose: () => void }) {
+function PatientDetails({ patient, onClose }) {
   return (
     <Card className="absolute top-0 right-0 w-1/3 h-full z-10 overflow-auto">
       <CardHeader className="flex flex-row items-center justify-between sticky top-0 bg-background z-20 p-2">
@@ -226,12 +220,7 @@ function PatientDetails({ patient, onClose }: { patient: Patient; onClose: () =>
   )
 }
 
-interface PatientAlertDetailsProps {
-  patient: Patient;
-  onClose: () => void;
-}
-
-function PatientAlertDetails({ patient, onClose }: PatientAlertDetailsProps) {
+function PatientAlertDetails({ patient, onClose }) {
   const patientAlerts = [
     { id: 1, type: 'Pending', description: 'HRA submitted', category: 'Critical', protocol: 'Onboarding protocol', time: '8 hrs', source: 'Source', action: 'Review' },
     { id: 2, type: 'Pending', description: 'Contact information missing', category: 'Critical', protocol: 'Onboarding protocol', time: '8 hrs', source: 'Source', action: 'Review' },
@@ -295,25 +284,25 @@ function PatientAlertDetails({ patient, onClose }: PatientAlertDetailsProps) {
   )
 }
 
-export default function Dashboard() {
+export function DashboardComponent() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('')
-  const [selectedPatient, setSelectedPatient] = useState<Patient | null>(null)
+  const [selectedPatient, setSelectedPatient] = useState(null)
   const [activeView, setActiveView] = useState('home')
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-  const [theme, setTheme] = useState<string>('light')
+  const [theme, setTheme] = useState('light')
   const [searchTerm, setSearchTerm] = useState('')
-  const [selectedPatients, setSelectedPatients] = useState<number[]>([])
+  const [selectedPatients, setSelectedPatients] = useState([])
   const [showAlertDetails, setShowAlertDetails] = useState(false)
 
   useEffect(() => {
     document.documentElement.className = theme
   }, [theme])
 
-  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleLogin = (e) => {
     e.preventDefault()
     if (!email || !password) {
       setError('Please enter both email and password.')
@@ -331,15 +320,15 @@ export default function Dashboard() {
     setActiveView('home')
   }
 
-  const handlePatientClick = (patient: Patient) => {
+  const handlePatientClick = (patient) => {
     setSelectedPatient(patient)
   }
 
-  const handleThemeChange = (newTheme: string) => {
+  const handleThemeChange = (newTheme) => {
     setTheme(newTheme)
   }
 
-  const togglePatientSelection = (patientId: number) => {
+  const togglePatientSelection = (patientId) => {
     setSelectedPatients(prev => 
       prev.includes(patientId)
         ? prev.filter(id => id !== patientId)
@@ -347,7 +336,7 @@ export default function Dashboard() {
     )
   }
 
-  const handleAlertClick = (patient: Patient) => {
+  const handleAlertClick = (patient) => {
     setSelectedPatient(patient)
     setShowAlertDetails(true)
   }
