@@ -522,7 +522,6 @@ export function DashboardComponent() {
               <div className="p-2 border-b border-border flex justify-between items-center">
                 <div className="flex items-center space-x-2">
                   <h2 className="text-base font-semibold">My Dashboard</h2>
-                  <Badge variant="secondary">AWV</Badge>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Button variant="outline" size="sm">
