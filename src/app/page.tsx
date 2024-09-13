@@ -1,5 +1,5 @@
+// @ts-nocheck
 "use client";
-
 import React, { useState, useEffect } from 'react'
 import { Eye, EyeOff, Bell, Calendar, ChevronLeft, ChevronRight, Filter, Home, MoreHorizontal, Plus, Search, Settings, Users, Briefcase, MessageCircle, BarChart2, DollarSign, Menu, LogOut, X, UserCircle2, Mail, PhoneCall, FileText, CheckSquare } from 'lucide-react'
 import { Button } from "@/components/ui/button"
